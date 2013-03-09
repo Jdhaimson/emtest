@@ -1,21 +1,20 @@
-development:
-  adapter: postgresql
-  encoding: unicode
+base: &base
+  adapter: em_postgresql
+  host: localhost
+  port: 5432
   database: emtest_development
-  pool: 5
   username: josh
   password: password
+  schema_search_path: public
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: emtest_test
-  pool: 5
-  username: josh
-  password: password
+development:
+  <<: *base
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *base
+
+staging:
+  <<: *base
+
+test:
+  <<: *base
