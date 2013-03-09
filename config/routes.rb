@@ -1,4 +1,5 @@
 Emtest::Application.routes.draw do
+  match 'conctests' => 'conctests#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
